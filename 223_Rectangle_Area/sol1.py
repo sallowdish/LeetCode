@@ -11,25 +11,15 @@ class Solution(object):
         :type H: int
         :rtype: int
         """
-        if not self.isOverLap(((A, B), (C, D)), ((E, F), (G, H))):
-            return 0
-        return 1
+        recA = ((A, B), (C, D))
+        recB = ((E, F), (G, H))
+        recC = ((max(A, E), max(B, F)), (min(C, G), min(D, H)))
 
-    def isOverLap(self, rec_1, rec_2):
-        full_rec_1 = (rec_1_point_A, rec_1_point_B, rec_1_point_C, rec_1_point_D) = (
-        rec_1[0], (rec_1[1][0], rec_1[0][1]), rec_1[1], (rec_1[0][0], rec_1[1][1]))
-        overlap_status_1 = list(map(lambda x: self.is_point_in_rec(x, rec_2), full_rec_1))
-        if True in overlap_status_1:
-            return ([full_rec_1[i] for i in range(4) if overlap_status_1[i] == True], rec_2)
-        full_rec_2 = (rec_2_point_A, rec_2_point_B, rec_2_point_C, rec_2_point_D) = (
-        rec_2[0], (rec_2[1][0], rec_2[0][1]), rec_2[1], (rec_2[0][0], rec_2[1][1]))
-        overlap_status_2 = list(map(lambda x: self.is_point_in_rec(x, rec_1), full_rec_2))
-        if True in overlap_status_2:
-            return ([full_rec_2[i] for i in range(4) if overlap_status_2[i] == True], rec_1)
-        return False
+        if recC[0][0] < recC[1][0] and recC[0][1] < recC[1][1]:
+            return self.rec_area(recA[0],recA[1]) + self.rec_area(recB[0], recB[1])-self.rec_area(recC[0], recC[1])
+        return self.rec_area(recA[0],recA[1]) + self.rec_area(recB[0], recB[1])
 
-    def is_point_in_rec(self, point, rec):
-        bottom_left_point = rec[0]
-        top_right_point = rec[1]
-        return bottom_left_point[0] < point[0] < top_right_point[0] and bottom_left_point[1] < point[1] < \
-                                                                        top_right_point[1]
+    def rec_area(self, point_a, point_b):
+        width = abs(point_a[0] - point_b[0])
+        height = abs(point_a[1] - point_b[1])
+        return width * height
