@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from unittest import TestCase, main
-from sol1 import Solution
+from sol2 import Solution
 
 
 class Test(TestCase):
@@ -9,66 +9,58 @@ class Test(TestCase):
     def setUp(self):
         self.sol = Solution()
 
-    # test isOverLap
-    def test0(self):
+    # test is_over_lap
+    # def test0_0(self):
+    #     n = []
+    #     m = 0
+    #     ans = True
+    #     self.assertEqual(ans, bool(self.sol.is_over_lap(((-3, 0), (3, 4)), ((0, -1), (9, 2)))))
+    #
+    # def test0_1(self):
+    #     n = [1]
+    #     m = 2
+    #     ans = False
+    #     self.assertEqual(ans, bool(self.sol.is_over_lap(((-5, -5), (0, 0)), ((1, 1), (3, 3)))))
+    #
+    # # rec_2 in rec_1
+    # def test0_2(self):
+    #     n = [1]
+    #     m = 2
+    #     ans = True
+    #     self.assertEqual(ans, bool(self.sol.is_over_lap(((-5, -5), (5, 5)), ((0, 0), (3, 3)))))
+    #
+    # # 2 points of rec_2 in rec_1
+    # def test0_3(self):
+    #     n = [1]
+    #     m = 2
+    #     ans = True
+    #     self.assertEqual(ans, bool(self.sol.is_over_lap(((-5, -5), (5, 5)), ((0, 0), (10, 3)))))
+
+    ## functional test
+    def test1_0(self):
         n = []
         m = 0
         ans = True
-        self.assertEqual(ans, bool(self.sol.isOverLap(((-3, 0), (3, 4)), ((0, -1), (9, 2)))))
+        self.assertEqual(6, self.sol.computeArea(-3, 0, 3, 4, 0, -1, 9, 2))
 
-    def test0_1(self):
-        n = [1]
-        m = 2
-        ans = False
-        self.assertEqual(ans, bool(self.sol.isOverLap(((-5, -5), (0, 0)), ((1, 1), (3, 3)))))
+    def test1_1(self):
+        n = []
+        m = 0
+        ans = 9
+        self.assertEqual(ans, self.sol.computeArea(-5, -5, 5, 5, 0, 0, 3, 3))
 
-    # rec_2 in rec_1
-    def test0_2(self):
-        n = [1]
-        m = 2
-        ans = True
-        self.assertEqual(ans, bool(self.sol.isOverLap(((-5, -5), (5, 5)), ((0, 0), (3, 3)))))
+    def test1_2(self):
+        n = []
+        m = 0
+        ans = 15
+        self.assertEqual(ans, self.sol.computeArea(-5, -5, 5, 5, 0, 0, 10, 3))
 
-    # 2 points of rec_2 in rec_1
-    def test0_3(self):
-        n = [1]
-        m = 2
-        ans = True
-        self.assertEqual(ans, bool(self.sol.isOverLap(((-5, -5), (5, 5)), ((0, 0), (10, 3)))))
+    def test1_3(self):
+        n = []
+        m = 0
+        ans = 20
+        self.assertEqual(ans, self.sol.computeArea(-5, -5, 5, 5, 0, -6, 2, 6))
 
-        # def test2_1(self):
-        #     n = [1, 2]
-        #     m = 2
-        #     ans = False
-        #     self.assertEqual(ans, self.sol.containsNearbyDuplicate(n, m))
-        #
-        # def test2_2(self):
-        #     n = [1, 2, 1]
-        #     m = 2
-        #     ans = True
-        #     self.assertEqual(ans, self.sol.containsNearbyDuplicate(n, m))
-        #
-        # def test3(self):
-        #     n = [1, 2, 1]
-        #     m = 1
-        #     ans = False
-        #     self.assertEqual(ans, self.sol.containsNearbyDuplicate(n, m))
-        #
-        # def test4(self):
-        #     n = [1, 2, 3, 1, 4, 5, 1]
-        #     m = 6
-        #     ans = True
-        #     self.assertEqual(ans, self.sol.containsNearbyDuplicate(n, m))
-
-        # def test5(self):
-        #     n = [1,2,3,4]
-        #     ans = -1
-        #     self.assertEqual(ans, self.sol.containsNearbyDuplicate(n, m))
-
-        # def test6(self):
-        #     n = 8
-        #     ans = 35
-        #     self.assertEqual(ans, self.sol.containsNearbyDuplicate(n, m), ans)
 
 
 if __name__ == "__main__":
