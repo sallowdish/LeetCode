@@ -1,0 +1,8 @@
+326. Power of Three My Submissions Question
+Total Accepted: 16852 Total Submissions: 47559 Difficulty: Easy
+Given an integer, write a function to determine if it is a power of three.
+
+Follow up:
+Could you do it without using any loop / recursion?
+
+For py3, nope. Since there is no such type like long/double
