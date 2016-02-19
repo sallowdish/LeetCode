@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from unittest import TestCase
 from collections import Counter
-from sol1 import Solution
+from sol3 import Solution
 import logging, unittest
 
 
