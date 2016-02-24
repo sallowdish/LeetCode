@@ -1,0 +1,4 @@
+50. Pow(x, n) My Submissions Question
+Total Accepted: 82297 Total Submissions: 294823 Difficulty: Medium
+Implement pow(x, n).
+
