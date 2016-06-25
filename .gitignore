@@ -49,3 +49,5 @@ fabric.properties
 
 # PyCharm Cache
 __pycache__/
+
+*.pyc
